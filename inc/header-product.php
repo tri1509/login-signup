@@ -20,7 +20,7 @@
 <body>
   <div id="site">
     <div id="container">
-      <div id="header-wp" class="clearfix">
+      <div id="header-wp-product" class="clearfix header-post">
         <?php
       if(is_login()){
       ?>

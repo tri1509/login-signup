@@ -6,9 +6,9 @@ body {
 }
 
 a {
-  -webkit-transition: .3s all ease;
-  transition: .3s all ease;
-  color: #7754F6;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  color: #7754f6;
   font-weight: 500;
   text-decoration: none;
 }
@@ -37,7 +37,6 @@ a:hover {
 
 @media (min-width: 768px) {
   .bg-img {
-    position: fixed;
     width: 50%;
     height: 100vh;
   }
@@ -45,7 +44,6 @@ a:hover {
 
 @media (min-width: 992px) {
   .bg-img {
-    position: fixed;
     width: 50%;
     height: 100vh;
   }
@@ -53,7 +51,6 @@ a:hover {
 
 @media (min-width: 1200px) {
   .bg-img {
-    position: fixed;
     width: 60%;
     height: 100vh;
   }
@@ -105,11 +102,12 @@ a:hover {
   border-radius: 10px !important;
 }
 
-.form-wrap .form-floating .form-control:active, .form-wrap .form-floating .form-control:focus {
+.form-wrap .form-floating .form-control:active,
+.form-wrap .form-floating .form-control:focus {
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
-  border-color: #7754F6;
+  box-shadow: none;
+  border-color: #7754f6;
 }
 
 .form-wrap .password-show-toggle {
@@ -125,7 +123,7 @@ a:hover {
 }
 
 .form-wrap .password-show-toggle span:before {
-  font-family: 'unicons-line';
+  font-family: "unicons-line";
   content: "\ebf8";
 }
 
@@ -142,29 +140,30 @@ a:hover {
 }
 
 .form-wrap .form-check .form-check-input:checked {
-  background-color: #7754F6;
-  border-color: #7754F6 !important;
+  background-color: #7754f6;
+  border-color: #7754f6 !important;
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
-.form-wrap .form-check .form-check-input:focus, .form-wrap .form-check .form-check-input:active {
+.form-wrap .form-check .form-check-input:focus,
+.form-wrap .form-check .form-check-input:active {
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .form-wrap .btn-primary {
   border-radius: 10px;
-  background-color: #7754F6;
-  border-color: #7754F6;
+  background-color: #7754f6;
+  border-color: #7754f6;
   height: 60px;
   font-weight: 500;
   -webkit-box-shadow: 0 15px 30px -7px rgba(119, 84, 246, 0.5);
-          box-shadow: 0 15px 30px -7px rgba(119, 84, 246, 0.5);
-  -webkit-transition: .3s all ease;
-  transition: .3s all ease;
+  box-shadow: 0 15px 30px -7px rgba(119, 84, 246, 0.5);
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
   font-size: 18px;
 }
 
@@ -199,7 +198,7 @@ a:hover {
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   width: 100%;
   height: 1px;
   background-color: #d1d1d1;
