@@ -30,12 +30,17 @@
         </span>
         <?php } ?>
         <div class="wp-inner">
-          <a href="?page=home" title="" id="logo" class="fl-left">UNITOP STORE</a>
+          <a href="?" title="" id="logo" class="fl-left">UNITOP STORE</a>
           <div id="btn-respon" class="fl-right"><i class="fa fa-bars" aria-hidden="true"></i></div>
           <div id="cart-wp" class="fl-right">
-            <a href="?page=cart" title="" id="btn-cart">
+            <a href="?mod=cart&act=show" title="" id="btn-cart">
               <span id="icon"><img src="public/images/icon-cart.png" alt=""></span>
-              <span id="num">5</span>
+              <?php 
+              $num_order = get_num_order_cart();
+              if($num_order > 0) {
+              ?>
+              <span id="num"><?php echo $num_order ;?></span>
+              <?php } ?>
             </a>
           </div>
         </div>

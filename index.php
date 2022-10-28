@@ -1,14 +1,21 @@
 <?php 
 session_start();
 ob_start();
+
+require 'data/product.php';
+require 'data/page.php';
 require 'data/users.php';
+
 require 'lib/data.php';
 require 'lib/users.php';
+require 'lib/pages.php';
+require 'lib/product.php';
+require 'lib/cart.php';
+require 'lib/number.php';
 require 'lib/url.php';
 require 'lib/template.php';
 ?>
 <?php
-
 $mod = isset($_GET['mod']) ? $_GET['mod'] : 'home';
 $act = isset($_GET['act']) ? $_GET['act'] : 'main';
 $path = "modules/{$mod}/{$act}.php";

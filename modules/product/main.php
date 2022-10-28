@@ -1,52 +1,55 @@
 <?php
-get_header('product');
+$cat_id = (int) $_GET['cat_id'];
+// Lấy thông tin danh mục
+$info_cat = get_info_cat($cat_id);
+//  Lấy danh sách bài viết
+$list_item = get_list_product($cat_id);
 ?>
-<div id="main-content-wp" class="detail-product-page clearfix">
+<?php get_header('product');?>
+<div id="main-content-wp" class="category-product-page">
   <div class="wp-inner clearfix">
-    <?php include 'inc/sidebar.php' ?>
+    <?php get_sidebar();?>
     <div id="content" class="fl-right">
-      <div class="section" id="info-product-wp">
-        <div class="section-detail clearfix">
-          <div class="thumb fl-left">
-            <img src="public/images/img-product.png" alt="">
-          </div>
-          <div class="detail fl-right">
-            <h3 class="title">Lenovo IdeaPad 100S 11IBY Z3735</h3>
-            <p class="price">5.000.000đ</p>
-            <p class="product-code">Mã sản phẩm: <span>VIETSOZ#123</span></p>
-            <div class="desc-short">
-              <h5>Mô tả sản phẩm:</h5>
-              <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho
-                in ấn. Lorem Ipsum đã được sử dụng như một văn bản</p>
-            </div>
-            <div class="num-order-wp">
-              <span>Số lượng:</span>
-              <input type="text" id="num-order" name="num-order" value="1">
-              <a href="?mod=product&act=add&id=1" title="" class="add-to-cart">Thêm giỏ hàng</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section" id="desc-wp">
+      <div class="section list-cat">
         <div class="section-head">
-          <h3 class="section-title">Chi tiết sản phẩm</h3>
+          <h3 class="section-title"><?php echo $info_cat['cat_title'] ?></h3>
+          <p class="section-desc">Có <?php echo count($list_item) ?> sản phẩm trong mục này</p>
         </div>
         <div class="section-detail">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <?php if(!empty($list_item)) { ?>
+          <ul class="list-item clearfix">
+            <?php foreach($list_item as $item){ ?>
+            <li>
+              <a href="<?php echo $item['url'] ?>" title="<?php echo $item['product_title'] ?>" class="thumb">
+                <img src="<?php echo $item['product_thumb'] ?>" alt="">
+              </a>
+              <a href="<?php echo $item['url'] ?>" title="<?php echo $item['product_title'] ?>" class="title">
+                <?php echo $item['product_title'] ?>
+              </a>
+              <p class="price"><?php echo currency_format($item['price']) ?></p>
+            </li>
+            <?php } ?>
+          </ul>
+          <?php } ?>
+        </div>
+      </div>
+      <div class="section" id="pagenavi-wp">
+        <div class="section-detail">
+          <ul id="list-pagenavi">
+            <li class="active">
+              <a href="" title="">1</a>
+            </li>
+            <li>
+              <a href="" title="">2</a>
+            </li>
+            <li>
+              <a href="" title="">3</a>
+            </li>
+          </ul>
+          <a href="" title="" class="next-page"><i class="fa fa-angle-right"></i></a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<?php get_footer(); ?>
+<?php get_footer();?>
