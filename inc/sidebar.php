@@ -16,6 +16,9 @@
       <li>
         <a href="?mod=product&act=main&cat_id=2" title="">Máy tính bảng</a>
       </li>
+      <li>
+        <a href="?mod=user&act=main" title="">Thành viên</a>
+      </li>
       <?php if(is_login()){ ?>
       <li>
         <a href="?mod=logout&act=logout" title="Đăng xuất" onclick="return confirm('Bạn có muốn đăng xuất không ?')">

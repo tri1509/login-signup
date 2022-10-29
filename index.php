@@ -1,4 +1,5 @@
 <?php 
+require_once 'db/connect.php';
 session_start();
 ob_start();
 

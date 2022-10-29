@@ -10,9 +10,6 @@
   <link href="public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <link href="public/style.css" rel="stylesheet" type="text/css" />
   <link href="public/responsive.css" rel="stylesheet" type="text/css" />
-  <script src="public/js/jquery-2.2.4.min.js" type="text/javascript"></script>
-  <script src="public/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
-  <script src="public/js/main.js" type="text/javascript"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 </head>

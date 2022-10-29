@@ -68,8 +68,17 @@ function delete_cart($id) {
       unset($_SESSION['cart']['buy'][$id]);
       // cập nhật lại
       update_info_cart();
+    }else{
+      unset($_SESSION['cart']);
     }
-  }else{
-    unset($_SESSION['cart']);
   }
+}
+
+function update_cart($qty) {
+  foreach($qty as $id => $new_qty) {
+    $qty = $_SESSION['cart']['buy'][$id]['qty'] = $new_qty;
+    $qty = $_SESSION['cart']['buy'][$id]['sub_total'] = $new_qty * $_SESSION['cart']['buy'][$id]['price'];
+  }
+  // cập nhật lại
+  update_info_cart();
 }
