@@ -35,9 +35,9 @@
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
 <script src="js/custom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="public/js/jquery-2.2.4.min.js" type="text/javascript"></script>
 <script src="public/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+<script src="public/js/jquery-3.6.1.min.js" type="text/javascript"></script>
 <script src="public/js/main.js" type="text/javascript"></script>
+<script src="public/js/app.js" type="text/javascript"></script>
 
 </html>

@@ -50,10 +50,19 @@ if(isset($_POST['btn_add'])) {
   }
 // kết luận
   if(empty($error)){
-    $sql = "INSERT INTO tbl_user(fullname,email,password,username,gender) VALUE('$fullname','$email','$password','$username','$gender')";
-    if(mysqli_query($conn,$sql)){
-      $alert['success'] ="<p class='alert-success'>Đăng ký thành công !</p>";
-    }
+    // $sql = "INSERT INTO tbl_user(fullname,email,password,username,gender) VALUE('$fullname','$email','$password','$username','$gender')";
+    // if(mysqli_query($conn,$sql)){
+    //   $alert['success'] ="<p class='alert-success'>Đăng ký thành công !</p>";
+    // }
+    $data = array(
+      'fullname' => $fullname,
+      'email' => $email,
+      'password' => $password,
+      'username' => $username,
+      'gender' => $gender,
+    );
+    db_insert("tbl_user",$data);
+    $alert['success'] ="<p class='alert-success'>Đăng ký thành công !</p>";
   }
   // show_array($_POST);
 }

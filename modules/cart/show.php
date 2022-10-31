@@ -46,9 +46,9 @@
                 <td><?php echo currency_format($item['price']) ?></td>
                 <td>
                   <input type="number" name="qty[<?php echo $item['id']?>]" value="<?php echo $item['qty'] ?>"
-                    class="num-order" min="1" max="10">
+                    class="num-order" min="1" max="99" data-id="<?php echo $item['id']?>">
                 </td>
-                <td><?php echo currency_format($item['sub_total']) ?></td>
+                <td id="sub-total-<?php echo $item['id']?>"><?php echo currency_format($item['sub_total']) ?></td>
                 <td>
                   <a href="<?php echo $item['url_del_cart'] ?>" title="" class="del-product">
                     <i class="fa fa-trash-o"></i>

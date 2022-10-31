@@ -1,14 +1,34 @@
 <?php get_header('post'); ?>
 <?php
-  $sql = "SELECT * FROM `tbl_user`"; 
-  $result = mysqli_query($conn,$sql);
-  $list_user = array();
-  $num_rows = mysqli_num_rows($result);
-  if ($num_rows > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-      $list_user[] = $row;
-    }
+  // $sql = "SELECT * FROM `tbl_user`"; 
+  // $result = mysqli_query($conn,$sql);s
+  // $list_user = array();
+  // $num_rows = mysqli_num_rows($result);
+  // if ($num_rows > 0) {
+  //   while($row = mysqli_fetch_assoc($result)) {
+  //     $list_user[] = $row;
+  //   }
+  // }
+  $num_rows = db_num_rows("SELECT * FROM `tbl_user`");
+
+  // số lượng bản ghi trên 1 trang
+  $num_per_page = 6;
+  $total_row = $num_rows;
+
+  // tổng số trang
+  $num_page = ceil($total_row/$num_per_page);
+  $page = isset($_GET['page'])?(int)$_GET['page']:1;
+  $start = ($page -1) * $num_per_page;
+  $list_user = get_user($start,$num_per_page);
+
+  // Nếu có điều kiện
+  // $list_user = get_user($start,$num_per_page,"`gender`='boy' ");
+
+  foreach ($list_user as &$user) {
+  $user['url_update'] = "?mod=user&act=update&id={$user['id']}";
+  $user['url_delete'] = "?mod=user&act=delete&id={$user['id']}";
   }
+  unset($user);
 
   // show_array($list_user);
 ?>
@@ -29,7 +49,8 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">stt</th>
+                  <th scope="col">ID</th>
                   <th scope="col">Họ và tên</th>
                   <th scope="col">Email</th>
                   <th scope="col">Tên đăng nhập</th>
@@ -39,14 +60,13 @@
               </thead>
               <tbody>
                 <?php
-                  $i = 0;
+                  $i = $start;
                   foreach ($list_user as $user) {
                     $i ++;
-                    $user['url_update'] = "?mod=user&act=update&id={$user['id']}";
-                    $user['url_delete'] = "?mod=user&act=delete&id={$user['id']}";
                 ?>
                 <tr>
                   <th scope="row"><?php echo $i ?></th>
+                  <td><?php echo $user['id'] ?></td>
                   <td><?php echo $user['fullname'] ?></td>
                   <td><?php echo $user['email'] ?></td>
                   <td><?php echo $user['username'] ?></td>
@@ -71,6 +91,7 @@
           </div>
         </div>
       </div>
+      <?php get_pagging($num_page, $page, "?mod=user&act=main");?>
     </div>
   </div>
 </div>

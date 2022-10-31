@@ -1,10 +1,6 @@
 <?php get_header() ?>
 <?php
 $id = (int) $_GET['id'];
-$sql = "SELECT * FROM tbl_user WHERE id='$id' ";
-$result = mysqli_query($conn,$sql);
-$item = mysqli_fetch_assoc($result);
-// show_array($item);
 ?>
 <?php
 if(isset($_POST['btn_edit'])) {
@@ -57,13 +53,30 @@ if(isset($_POST['btn_edit'])) {
   }
 // kết luận
   if(empty($error)){
-    $sql = "UPDATE tbl_user ";
-    if(mysqli_query($conn,$sql)){
-      $alert['success'] ="<p class='alert-success'>Sửa thành công !</p>";
-    }
+    // $sql = "UPDATE tbl_user SET 
+    // fullname = '$fullname',
+    // email = '$email',
+    // gender = '$gender',
+    // username = '$username' WHERE id = '$id'";
+    // if(mysqli_query($conn,$sql)){
+    //   $alert['success'] ="<p class='alert-success'>Sửa thành công !</p>";
+    // }
+    $data = array(
+      'fullname' => $fullname,
+      'email' => $email,
+      'username' => $username,
+      'gender' => $gender,
+    );
+    db_update('tbl_user',$data,"id=$id");
+    $alert['success'] ="<p class='alert-success'>Sửa thành công !</p>";
   }
   // show_array($_POST);
 }
+// $sql = "SELECT * FROM tbl_user WHERE id='$id' ";
+// $result = mysqli_query($conn,$sql);
+// $item = mysqli_fetch_assoc($result);
+
+$item = db_fetch_row("SELECT * FROM `tbl_user` WHERE id='$id' ");
 
 ?>
 <div id="main-content-wp" class="checkout-page ">
@@ -140,7 +153,7 @@ if(isset($_POST['btn_edit'])) {
                     </span>
                   </div>
                   <div class="place-order-wp clearfix">
-                    <input type="submit" name="btn_edit" value="cập nhât" class="btn btn-primary">
+                    <input type="submit" name="btn_edit" value="cập nhật" class="btn btn-primary">
                   </div>
                 </div>
               </div>

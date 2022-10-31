@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Unitop Store</title>
+  <title>MT SHOP</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
@@ -10,8 +10,7 @@
   <link href="public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <link href="public/style.css" rel="stylesheet" type="text/css" />
   <link href="public/responsive.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -27,7 +26,7 @@
         </span>
         <?php } ?>
         <div class="wp-inner">
-          <a href="?" title="" id="logo" class="fl-left">UNITOP STORE</a>
+          <a href="?" title="" id="logo" class="fl-left">MT SHOP</a>
           <div id="btn-respon" class="fl-right"><i class="fa fa-bars" aria-hidden="true"></i></div>
           <div id="cart-wp" class="fl-right">
             <a href="?mod=cart&act=show" title="" id="btn-cart">

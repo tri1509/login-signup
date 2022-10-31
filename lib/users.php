@@ -35,3 +35,11 @@ function info_user($field = 'id') {
   }
   return false;
 }
+
+function get_user($start = 1,$num_per_page = 6, $where = "") {
+  if(!empty($where)){
+    $where = "WHERE {$where}";
+  }
+  $list_user = db_fetch_array("SELECT * FROM `tbl_user` {$where} ORDER BY id DESC LIMIT $start,$num_per_page");
+  return $list_user;
+}

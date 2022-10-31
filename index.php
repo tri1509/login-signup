@@ -1,5 +1,6 @@
 <?php 
-require_once 'db/connect.php';
+require 'db/config.php';
+require 'db/database.php';
 session_start();
 ob_start();
 
@@ -14,9 +15,11 @@ require 'lib/product.php';
 require 'lib/cart.php';
 require 'lib/number.php';
 require 'lib/url.php';
+require 'lib/pagging.php';
 require 'lib/template.php';
 ?>
 <?php
+db_connect($config);
 $mod = isset($_GET['mod']) ? $_GET['mod'] : 'home';
 $act = isset($_GET['act']) ? $_GET['act'] : 'main';
 $path = "modules/{$mod}/{$act}.php";

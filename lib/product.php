@@ -37,3 +37,11 @@ function show_list_product_cat() {
   }
 return false;
 }
+
+function get_product($start = 1,$num_per_page = 6, $where = "") {
+  if(!empty($where)){
+    $where = "WHERE {$where}";
+  }
+  $list_product = db_fetch_array("SELECT * FROM `tbl_product` {$where} ORDER BY id DESC LIMIT $start,$num_per_page");
+  return $list_product;
+}
